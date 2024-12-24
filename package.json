@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy":"gh-pages -d dist"
   },
+  "homepage":"https://Niklaus9084.github.io/serial-assistant/",
   "dependencies": {
     "@vueuse/core": "^10.2.1",
     "axios": "^1.6.0",
@@ -15,6 +17,7 @@
     "daisyui": "^3.5.0",
     "date-fns": "^2.30.0",
     "file-saver": "^2.0.5",
+    "gh-pages": "^6.2.0",
     "str2gbk": "^0.0.5",
     "uuid": "^9.0.0",
     "vue": "^3.3.4",
