@@ -6,12 +6,13 @@ import SettingPanel from "@/components/SettingPanel/SettingPanel.vue";
 import DownloadDriverModal from "@/modals/DownloadDriverModal/DownloadDriverModal.vue";
 import SettingModal from "@/modals/SettingModal/SettingModal.vue";
 import SerialRateModal from "@/modals/SerialRateModal/SerialRateModal.vue";
+import LineChart from "./components/ChartPanel/LineChart.vue";
 import { listenNetworkStatus } from "@/network";
 import { useRecordStore } from "@/store/useRecordStore";
 import { useSerialStore } from "@/store/useSerialStore";
 import { useBle } from "@/utils/useBle";
 import { useSerial } from "@/utils/useSerial";
-import { provide } from "vue";
+import { provide, defineComponent } from "vue";
 import UserNumberFotter from "./components/UserNumberFooter/UserNumberFotter.vue";
 import ASCIIModel from "./modals/AsciiModel/ASCIIModel.vue";
 const { records, readingRecord, addRecord } = useRecordStore();
@@ -56,14 +57,20 @@ provide("ble", ble);
 </script>
 
 <template>
-  <div class="flex justify-center items-center h-screen">
+  <div class="flex justify-upper items-center h-screen">
     <div class="container 2xl:mx-56 aspect-video flex flex-nowrap relative">
-      <SettingPanel class="basis-1/4 border-solid border-2 border-gray-400 rounded-xl p-5" />
+      <SettingPanel
+        class="basis-1/4 border-solid border-2 border-gray-400 rounded-xl p-5"
+      />
       <div class="w-7"></div>
       <div class="flex flex-col flex-grow basis-3/4">
-        <RecordPanel class="basis-3/4 border-solid border-2 border-gray-400 rounded-xl" />
+        <RecordPanel
+          class="basis-3/4 border-solid border-2 border-gray-400 rounded-xl"
+        />
         <ControlPanel class="h-10" />
-        <SendPanel class="basis-1/4 border-solid border-2 border-gray-400 rounded-xl" />
+        <SendPanel
+          class="basis-1/4 border-solid border-2 border-gray-400 rounded-xl"
+        />
       </div>
 
       <div class="text-sm m-2 absolute -bottom-8 right-0">
@@ -72,6 +79,7 @@ provide("ble", ble);
       <UserNumberFotter class="absolute -bottom-8 left-0 m-2" />
     </div>
   </div>
+  <LineChart />
   <DownloadDriverModal />
   <SettingModal />
   <ASCIIModel />

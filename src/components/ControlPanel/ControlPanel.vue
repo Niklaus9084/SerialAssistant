@@ -1,10 +1,11 @@
 <script setup>
 import { useRecordStore } from "@/store/useRecordStore";
 import { useSerialStore } from "@/store/useSerialStore";
+import {useRecordSave } from "@/store/useRecordSave";
 const { readType, sendType, nextReadType, nextSendType } = useSerialStore();
 const { pinBottom, clearRecords, readingRecord, rxCount, txCount } =
   useRecordStore();
-
+const { saveRecordsToFile } = useRecordSave();
 function toggleReadType() {
   nextReadType();
 }
@@ -21,6 +22,7 @@ const typeCssMap = {
   error: "badge-error",
 };
 </script>
+
 <template>
   <div class="flex items-center mx-3">
     <div class="tooltip" data-tip="点击切换接收格式">
@@ -49,6 +51,11 @@ const typeCssMap = {
         <div class="swap-on m-2">自动滚动</div>
         <div class="swap-off m-2">不滚动</div>
       </label>
+    </div>
+    <div class="w-3"></div>
+    <!-- <RecordSave /> -->
+    <div class="badge badge-info hover:badge-outline cursor-pointer select-none" @click="saveRecordsToFile">
+      保存记录到文件
     </div>
     <div class="w-3"></div>
     <div class="badge badge-error hover:badge-outline cursor-pointer select-none" @click="clearRecords">

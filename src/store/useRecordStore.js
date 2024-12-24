@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, inject } from "vue";
 /**
  *
  * record definition:
@@ -15,6 +15,19 @@ const pinBottom = ref(true);
 
 const rxCount = ref(0);
 const txCount = ref(0);
+
+// export default {
+//   setup() {
+//     const records = inject("records", ref([]));
+//     const updateRecords = () => {
+//       records.value = records.value;
+//     };
+//     return {
+//       records,
+//       updateRecords,
+//     };
+//   }
+// }
 
 function addRecord(record) {
   records.value.push(record);
