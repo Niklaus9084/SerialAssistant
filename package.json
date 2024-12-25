@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "deploy":"gh-pages -d dist"
   },
-  "homepage":"https://Niklaus9084.github.io/serial-assistant/",
+  "homepage":"https://Niklaus9084.github.io/SerialAssistant/",
   "dependencies": {
     "@vueuse/core": "^10.2.1",
     "axios": "^1.6.0",

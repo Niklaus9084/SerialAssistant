@@ -10,4 +10,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  publicPath:
+    process.env.NODE_ENV === "production"
+      ? "https://github.com/Niklaus9084/SerialAssistant.git" // 这里是你的 GitHub 仓库名称
+      : "/",
 });
